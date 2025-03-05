@@ -1,16 +1,19 @@
 /* logn form css */
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;	
-	font-family: Raleway, sans-serif;
+	font-family: Montserrat, sans-serif;
 }
 
 body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+    background: url('../background.jpg'); /* Adjust path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -21,11 +24,12 @@ body {
 }
 
 .screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	background: linear-gradient(90deg, #1f01ff, #0d03a0);		
 	position: relative;	
 	height: 600px;
 	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
+    border-radius: 15px;
+	/* box-shadow: 0px 0px 24px #ffffff; */
 }
 
 .screen__content {
@@ -152,29 +156,57 @@ body {
 	color: #7875B5;
 }
 
-.social-login {	
-	position: absolute;
-	height: 140px;
-	width: 160px;
-	text-align: center;
-	bottom: 0px;
-	right: 0px;
-	color: #fff;
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .screen {
+        width: 80%;
+        height: auto;
+        padding: 30px;
+    }
+
+    .login {
+        padding-top: 100px;
+    }
+
+    .login__input {
+        font-size: 14px;
+    }
+
+    .login__submit {
+        font-size: 14px;
+    }
 }
 
-.social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+/* Phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
 
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
-}
+    .screen {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
 
-.social-login__icon:hover {
-	transform: scale(1.5);	
+    .login {
+        padding-top: 80px;
+    }
+
+    .login__input {
+        font-size: 14px;
+    }
+
+    .login__submit {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .social-login {
+        position: static;
+        margin-top: 20px;
+    }
 }
