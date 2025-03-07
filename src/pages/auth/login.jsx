@@ -6,7 +6,7 @@ function Login() {
   useEffect(() => {
     const shape = shapeRef.current;
     let position = 300; // Start off-screen (increase for more offset)
-    const speed = 5; // Speed of animation
+    const speed = 1; // Speed of animation
 
     function slideIn() {
       if (position > 120) {  // Target final position from your CSS (.screen__background__shape1 { right: 120px; })
