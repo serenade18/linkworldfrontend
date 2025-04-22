@@ -5,6 +5,7 @@ import { load_user } from './actions/auth';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import { ToastContainer } from 'react-toastify';
+import Layout from './hoc/Layout'
 
 
 // Lazy-loaded components
@@ -25,6 +26,12 @@ function App() {
               {/* Auth Pages */}
               <Route exact path="/" element={<Login />}/>
           </Routes>
+          <Layout>
+            <Routes>
+              {/* Dashboard */}
+              <Route exact path='/dashboard' />
+            </Routes>
+          </Layout>
         </Suspense>
       </Router>
     </Provider>
