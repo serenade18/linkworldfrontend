@@ -1,8 +1,10 @@
 import { useEffect, lazy, Suspense  } from 'react'
-import './assets/style/style.css'
+import './assets/css/argon-dashboard.min9c7f.css'
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom'
-
-
+import { load_user } from './actions/auth';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import { ToastContainer } from 'react-toastify';
 
 
 // Lazy-loaded components
@@ -11,12 +13,21 @@ const Login = lazy(() => import('./pages/auth/login'));
 function App() {
 
   return (
-    <Router>
-        <Routes>
-            {/* Auth Pages */}
-            <Route exact path="/" element={<Login />}/>
-        </Routes>
-    </Router>
+    <Provider store={store}>
+    <ToastContainer position="bottom-right" autoClose={5000} />
+      <Router>
+        <Suspense fallback={<div className="d-flex justify-content-center align-items-center min-vh-100">
+            <div className="spinner-border text-success" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+          </div>}>
+          <Routes>
+              {/* Auth Pages */}
+              <Route exact path="/" element={<Login />}/>
+          </Routes>
+        </Suspense>
+      </Router>
+    </Provider>
   )
 }
 
