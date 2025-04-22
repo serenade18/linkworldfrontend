@@ -16,6 +16,7 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
     email: '',
     password: '',
     re_password: '',
+    user_type: 'Admin'
   });
 
   const { first_name, last_name, phone, email, password, re_password } = formData;
@@ -42,7 +43,7 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
             }
 
             if (password === re_password) {
-                const response = await adminSignup(name, phone, email, password, re_password);
+                const response = await adminSignup(first_name, last_name, phone, email, password, re_password, user_type );
     
                 console.log(response); // Log the API response
     

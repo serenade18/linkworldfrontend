@@ -271,13 +271,13 @@ export const hybridSignup = (name, phone, email, user_type, password, re_passwor
   }
 }
 
-export const adminSignup = (name, phone, email, password, re_password) => async dispatch => {
+export const adminSignup = (first_name, last_name, phone, email, password, re_password) => async dispatch => {
     const config = {
         headers: {
             'Content-type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify({ name, phone, email, password, re_password })
+        body: JSON.stringify({ first_name, last_name, phone, email, password, re_password })
     };
 
     try {
