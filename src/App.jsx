@@ -10,6 +10,7 @@ import Layout from './hoc/Layout'
 
 // Lazy-loaded components
 const Login = lazy(() => import('./pages/auth/login'));
+const AdminSignup = lazy(() => import('./pages/auth/AdminSignup'))
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Routes>
               {/* Auth Pages */}
               <Route exact path="/" element={<Login />}/>
+              <Route path="/admin-signup" element={<AdminSignup />} />
           </Routes>
           <Layout>
             <Routes>
