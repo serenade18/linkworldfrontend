@@ -16,10 +16,10 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
     email: '',
     password: '',
     re_password: '',
-    user_type: 'Admin'
+    user_type: 'admin'
   });
 
-  const { first_name, last_name, phone, email, password, re_password } = formData;
+  const { first_name, last_name, phone, email, password, re_password, user_type } = formData;
   const [showPassword, setShowPassword] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
@@ -43,7 +43,7 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
             }
 
             if (password === re_password) {
-                const response = await adminSignup(first_name, last_name, phone, email, password, re_password, user_type );
+                const response = await adminSignup( formData );
     
                 console.log(response); // Log the API response
     
@@ -101,16 +101,16 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
                                 <div className="card-body">
                                     <form method="POST" onSubmit={onSubmit}>
                                         <div className="mb-3">
-                                            <input type="text" name="first_name" className="form-control" placeholder="First Name" aria-label="Name" value={first_name} onChange={(e) => onChange(e)}/>
+                                            <input type="text" name="first_name" className="form-control" placeholder="First Name" aria-label="Name" value={formData.first_name} onChange={(e) => onChange(e)}/>
                                         </div>
                                         <div className="mb-3">
-                                            <input type="text" name="last_name" className="form-control" placeholder="Last Name" aria-label="Name" value={last_name} onChange={(e) => onChange(e)}/>
+                                            <input type="text" name="last_name" className="form-control" placeholder="Last Name" aria-label="Name" value={formData.last_name} onChange={(e) => onChange(e)}/>
                                         </div>
                                         <div className="mb-3">
-                                            <input type="phone" name="phone" className="form-control" placeholder="Phone" aria-label="Phone" value={phone} onChange={(e) => onChange(e)}/>
+                                            <input type="phone" name="phone" className="form-control" placeholder="Phone" aria-label="Phone" value={formData.phone} onChange={(e) => onChange(e)}/>
                                         </div>
                                         <div className="mb-3">
-                                            <input type="email" name="email" className="form-control" placeholder="Email" aria-label="Email" value={email} onChange={(e) => onChange(e)}/>
+                                            <input type="email" name="email" className="form-control" placeholder="Email" aria-label="Email" value={formData.email} onChange={(e) => onChange(e)}/>
                                         </div>
                                         <div className="mb-3 input-group">
                                             <input
@@ -119,7 +119,7 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
                                                 className="form-control"
                                                 placeholder="*******"
                                                 aria-label="Password"
-                                                value={password}
+                                                value={formData.password}
                                                 onChange={(e) => onChange(e)}
                                             />
                                             <span
@@ -137,7 +137,7 @@ const AdminSignup = ({ adminSignup, isAuthenticated }) => {
                                                 className="form-control"
                                                 placeholder="*******"
                                                 aria-label="Password"
-                                                value={re_password}
+                                                value={formData.re_password}
                                                 onChange={(e) => onChange(e)}
                                             />
                                             <span
