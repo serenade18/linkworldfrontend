@@ -11,6 +11,7 @@ import Layout from './hoc/Layout'
 // Lazy-loaded components
 const Login = lazy(() => import('./pages/auth/login'));
 const AdminSignup = lazy(() => import('./pages/auth/AdminSignup'))
+const Orders = lazy(() => import('./pages/sales/Orders'))
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Routes>
               {/* Dashboard */}
               <Route exact path='/dashboard' />
+              <Route exact path='/orders' element={<Orders />}/>
             </Routes>
           </Layout>
         </Suspense>

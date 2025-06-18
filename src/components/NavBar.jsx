@@ -50,7 +50,7 @@ const NavBar = ({ logout, user, isSidebarOpen, isAuthenticated }) => {
                     id="iconSidenav"
                 ></i>
                 <Link className="navbar-brand m-0" to="/home" target="_blank">
-                    <img src={navLogo} className="navbar-brand-img" alt="main_logo" />
+                    <img src={navLogo} fs-2 alt="main_logo" /><br/>
                     <span className="ms-1 font-weight-bold">DRIVER MANAGEMENT PORTAL</span>
                 </Link>
             </div>
@@ -68,7 +68,7 @@ const NavBar = ({ logout, user, isSidebarOpen, isAuthenticated }) => {
                                 role="button"
                             >
                                 <div className="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
-                                    <i className="ni ni-shop text-primary text-sm opacity-10"></i>
+                                    <i className="fi fi-sr-apps-add text-primary text-sm opacity-10"></i>
                                 </div>
                                 <span className="nav-link-text ms-1">Dashboard</span>
                             </Link>
@@ -96,6 +96,7 @@ const NavBar = ({ logout, user, isSidebarOpen, isAuthenticated }) => {
                                       <span className="nav-link-text ms-1">{item.title}</span>
                                   </Link>
                               </li>
+                              
                           ))
                         : Config.userSideBar.map((item, index) => (
                               <li className="nav-item" key={index}>
