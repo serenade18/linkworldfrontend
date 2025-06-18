@@ -13,6 +13,7 @@ const Login = lazy(() => import('./pages/auth/login'));
 const AdminSignup = lazy(() => import('./pages/auth/AdminSignup'))
 const Orders = lazy(() => import('./pages/sales/Orders'))
 const Drivers = lazy(() => import('./pages/drivers/Drivers'))
+const Dashboard = lazy(() => import('./pages/general/Dashboard'))
 const Routing = lazy(() => import('./pages/general/Routes'))
 const Crates = lazy(() => import('./pages/crates/Crates'))
 
@@ -35,7 +36,7 @@ function App() {
           <Layout>
             <Routes>
               {/* Dashboard */}
-              <Route exact path='/dashboard' />
+              <Route exact path='/dashboard' element={<Dashboard />}/>
               <Route exact path='/orders' element={<Orders />}/>
               <Route exact path='/drivers' element={<Drivers />}/>
               <Route exact path='/crates' element={<Crates />}/>
