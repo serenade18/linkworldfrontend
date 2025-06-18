@@ -37,9 +37,17 @@ function App() {
             <Routes>
               {/* Dashboard */}
               <Route exact path='/dashboard' element={<Dashboard />}/>
+
+              {/* Orders */}
               <Route exact path='/orders' element={<Orders />}/>
+
+              {/* Drivers */}
               <Route exact path='/drivers' element={<Drivers />}/>
+
+              {/* Crates */}
               <Route exact path='/crates' element={<Crates />}/>
+
+              {/* Routing */}
               <Route exact path='/routing' element={<Routing />}/>
             </Routes>
           </Layout>

@@ -49,7 +49,7 @@ const NavBar = ({ logout, user, isSidebarOpen, isAuthenticated }) => {
                     aria-hidden="true"
                     id="iconSidenav"
                 ></i>
-                <Link className="navbar-brand m-0" to="/home" target="_blank">
+                <Link className="navbar-brand m-0" to="/dashboard" target="_blank">
                     <img src={navLogo} fs-2 alt="main_logo" /><br/>
                     <span className="ms-1 font-weight-bold">DRIVER MANAGEMENT PORTAL</span>
                 </Link>
@@ -63,7 +63,7 @@ const NavBar = ({ logout, user, isSidebarOpen, isAuthenticated }) => {
                         <li className="nav-item">
                             <Link
                                 data-bs-toggle="collapse"
-                                to={"/home"}
+                                to={"/dashboard"}
                                 className="nav-link"
                                 role="button"
                             >
