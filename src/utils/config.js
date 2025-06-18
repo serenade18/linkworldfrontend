@@ -21,7 +21,7 @@ class Config {
         {
             index: "4",
             title: "Route Allocation",
-            url: "/routes",
+            url: "/routing",
             icons: "fi fi-sr-map-location-track text-lg text-dark"
         },
     ]
@@ -42,7 +42,7 @@ class Config {
         {
             index: "4",
             title: "Route Allocation",
-            url: "/routes",
+            url: "/routing",
             icons: "fi fi-sr-map-location-track text-lg text-dark"
         },
     ]

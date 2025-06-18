@@ -12,6 +12,9 @@ import Layout from './hoc/Layout'
 const Login = lazy(() => import('./pages/auth/login'));
 const AdminSignup = lazy(() => import('./pages/auth/AdminSignup'))
 const Orders = lazy(() => import('./pages/sales/Orders'))
+const Drivers = lazy(() => import('./pages/drivers/Drivers'))
+const Routing = lazy(() => import('./pages/general/Routes'))
+const Crates = lazy(() => import('./pages/crates/Crates'))
 
 function App() {
 
@@ -34,6 +37,9 @@ function App() {
               {/* Dashboard */}
               <Route exact path='/dashboard' />
               <Route exact path='/orders' element={<Orders />}/>
+              <Route exact path='/drivers' element={<Drivers />}/>
+              <Route exact path='/crates' element={<Crates />}/>
+              <Route exact path='/routing' element={<Routing />}/>
             </Routes>
           </Layout>
         </Suspense>
