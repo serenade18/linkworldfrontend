@@ -12,6 +12,9 @@ import {
     ACTIVATION_SUCCESS, ACTIVATION_FAIL,
     GOOGLE_AUTH_SUCCESS, GOOGLE_AUTH_FAIL,
     LOGOUT,
+
+    // orders
+    ORDERS_FETCH_ALL_SUCCESS, ORDERS_FETCH_ALL_FAIL,
 } from './types';
 
 
@@ -402,3 +405,40 @@ export const logout= () => dispatch => {
         type: LOGOUT
     });
 }
+
+// Orders listing
+
+export const fetchAllOrders = (pageNumber = 1, searchQuery = '') => async (dispatch, getState) => {
+  const { access } = getState().auth;
+  let url = `${import.meta.env.VITE_REACT_APP_API_URL}/api/orders/`;
+
+  const params = new URLSearchParams();
+  if (searchQuery) {
+    params.append('search', searchQuery);
+  }
+  params.append('page', pageNumber);
+
+  url += `?${params.toString()}`;
+  console.log("Fetching data from URL:", url);
+
+  try {
+    const response = await Axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
+    });
+
+    if (response.status === 200) {
+      const orders = response.data; // Your payload is a plain array
+      dispatch({
+        type: ORDERS_FETCH_ALL_SUCCESS,
+        payload: orders,
+      });
+    } else {
+      dispatch({ type: ORDERS_FETCH_ALL_FAIL });
+    }
+  } catch (error) {
+    console.error("Error fetching orders data:", error);
+    dispatch({ type: ORDERS_FETCH_ALL_FAIL });
+  }
+};

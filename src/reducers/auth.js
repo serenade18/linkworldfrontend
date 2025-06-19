@@ -11,6 +11,9 @@ import {
     GOOGLE_AUTH_SUCCESS, GOOGLE_AUTH_FAIL,
     LOGOUT,
 
+    // orders
+    ORDERS_FETCH_ALL_SUCCESS, ORDERS_FETCH_ALL_FAIL,
+
 } from '../actions/types'
 
 const initialState = {
@@ -18,6 +21,7 @@ const initialState = {
     refresh: localStorage.getItem('refresh'),
     isAuthenticated: null,
     user: null,
+    orders: [],
 }
 
 export default function (state = initialState, action) {
@@ -105,7 +109,20 @@ export default function (state = initialState, action) {
                 ...state,
                 isAuthenticated: true,
             };
-            
+        
+        //Orders
+        
+        case ORDERS_FETCH_ALL_SUCCESS:
+            return {
+                ...state,
+                orders: payload, // Store the fetched customer data   
+            };
+
+        case ORDERS_FETCH_ALL_FAIL:
+            return {
+                ...state,
+                orders: [], // Handle the failure case
+            }; 
     
         default:
             return state;
